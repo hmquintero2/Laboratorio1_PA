@@ -1,4 +1,4 @@
-package com.laboratorio.streams.exception;
+package com.laboratorio.streams.exeption;
 
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
