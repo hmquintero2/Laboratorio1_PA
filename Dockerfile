@@ -1,14 +1,14 @@
-# Imagen base con Java 21
-FROM eclipse-temurin:21-jdk
+# Usa una imagen base ligera con OpenJDK 21 (o 17 si prefieres)
+FROM openjdk:21-slim
 
-# Directorio de trabajo
+# Directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar el jar generado
-COPY target/app.jar app.jar
+# Copiar el JAR generado por Maven
+COPY target/*.jar app.jar
 
-# Puerto (opcional si es API)
+# Exponer el puerto que usa Spring Boot
 EXPOSE 8080
 
-# Ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
